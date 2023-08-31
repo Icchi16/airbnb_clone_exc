@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body > div:first-of-type > main {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@media screen and (min-width: 768px) {
+  body > div:first-of-type > main {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (min-width: 1280px) {
+  body > div:first-of-type > main {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
+
+/* * {
+  transition: all;
+  transition-duration: 75ms;
+  transition-timing-function: ease-in-out;
+} */
