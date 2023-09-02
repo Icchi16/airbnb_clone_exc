@@ -126,10 +126,10 @@ export const quickLinkAirbnb: Partial<QuickLinkBoxProps> = {
 
 export interface ScrollableTab {
   id: string | number;
-  text: string | Key;
+  text: ReactNode | Key;
   onClick?: ([...args]: any) => {};
   content?: ReactNode;
-  image?: string;
+  icon?: ReactNode;
 }
 
 export type ScrollableTabs = ScrollableTab[];

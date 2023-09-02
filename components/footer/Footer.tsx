@@ -7,7 +7,7 @@ import {
   quickLinkAirbnb,
   quickLinkHosting,
   quickLinkSupport,
-} from "@/temps/temp";
+} from "@/temps/footerTemp";
 import { Link } from "@nextui-org/react";
 import NextLink from "next/link";
 import LowerFooter from "./footerComps/LowerFooter";
@@ -17,7 +17,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
-  const quickLinkBoxClassName = "py-6 md:py-12 flex-1 border-b md:border-b-none" ;
+  const quickLinkBoxClassName =
+    "py-6 md:py-12 flex-1 border-b md:border-b-none";
   const quickLinkBoxes = [quickLinkSupport, quickLinkHosting, quickLinkAirbnb];
 
   return (

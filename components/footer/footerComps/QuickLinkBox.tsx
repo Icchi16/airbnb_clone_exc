@@ -1,6 +1,6 @@
 "use client";
 
-import { QuickLinkProps } from "@/temps/temp";
+import { QuickLinkProps } from "@/temps/footerTemp";
 import { Listbox, ListboxItem, ListboxSection } from "@nextui-org/listbox";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";

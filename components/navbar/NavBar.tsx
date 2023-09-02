@@ -13,7 +13,9 @@ const Header = () => {
           <UserInterface className="hidden h-12 shrink-0 grow basis-32 md:block" />
         </div>
       </div>
-      <Catagories />
+      <div className="px-6 md:px-10 xl:px-20 relative">
+        <Catagories />
+      </div>
     </div>
   );
 };
