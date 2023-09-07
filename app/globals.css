@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-fade";
+
 body > div:first-of-type > main {
   padding-left: 24px;
   padding-right: 24px;
@@ -26,3 +31,14 @@ body > div:first-of-type > main {
   transition-duration: 75ms;
   transition-timing-function: ease-in-out;
 } */
+
+:root {
+  --swiper-theme-color: white !important;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-inactive-color: #888888;
+  --swiper-pagination-bullet-inactive-opacity: 0.8;
+  --swiper-pagination-bullet-horizontal-gap: 2px;
+}
+
+.swiper-button-next::after {
+}

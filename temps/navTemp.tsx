@@ -263,7 +263,7 @@ export const navCategory: ScrollableTabs = [
   },
   {
     id: "national_parks",
-    text: "national parks",
+    text: "National parks",
     icon: (
       <Image
         alt="national parks"
@@ -356,7 +356,7 @@ export const navCategory: ScrollableTabs = [
   },
   {
     id: "domes",
-    text: "domes",
+    text: "Domes",
     icon: (
       <Image alt="domes" width={25} height={20} src="/navIcons/domes.jpg" />
     ),
@@ -394,7 +394,7 @@ export const navCategory: ScrollableTabs = [
   },
   {
     id: "new",
-    text: "new",
+    text: "New",
     icon: <Image alt="new" width={25} height={20} src="/navIcons/new.jpg" />,
   },
   {
@@ -535,7 +535,7 @@ export const navCategory: ScrollableTabs = [
   },
   {
     id: "yurts",
-    text: "yurts",
+    text: "Yurts",
     icon: (
       <Image
         alt="yurts"
@@ -559,7 +559,7 @@ export const navCategory: ScrollableTabs = [
   },
   {
     id: "adapted",
-    text: "adapted",
+    text: "Adapted",
     icon: (
       <Image
         alt="adapted"
@@ -582,8 +582,8 @@ export const navCategory: ScrollableTabs = [
     ),
   },
   {
-    id: "Trulli",
-    text: "trulli",
+    id: "trulli",
+    text: "Trulli",
     icon: (
       <Image
         alt="trulli"

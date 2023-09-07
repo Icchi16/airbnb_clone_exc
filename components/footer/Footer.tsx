@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   const quickLinkBoxes = [quickLinkSupport, quickLinkHosting, quickLinkAirbnb];
 
   return (
-    <div className={clsx(className, "bg-gray-100 px-0")}>
+    <footer className={clsx(className, "bg-gray-100 px-0")}>
       <FooterCategories className="border-b px-6 py-12 md:px-10 xl:px-20" />
       <div className="px-6 md:px-10 xl:px-20">
         <div className="flex flex-col md:flex-row border-b">
@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         </div>
         <LowerFooter />
       </div>
-    </div>
+    </footer>
   );
 };
 
