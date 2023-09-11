@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 const Catagories = () => {
   const [onScroll, setOnScroll] = useState(false);
   const onScrollHandler = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 60) {
       setOnScroll(true);
     } else {

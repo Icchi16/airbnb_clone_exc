@@ -1,6 +1,6 @@
-import { Card, Image, Link, card } from "@nextui-org/react";
+import { Card, Link,} from "@nextui-org/react";
 import NextLink from "next/link";
-import { PiStar } from "react-icons/pi";
+import {  PiStarFill } from "react-icons/pi";
 import CoverCarousel from "./CoverCarousel";
 import { CardDataProps } from "@/temps/mainTemp";
 import { useEffect, useMemo, useState } from "react";
@@ -41,7 +41,7 @@ const MainCard: React.FC<MainCardProps> = ({ cardData }) => {
         <div className="grid grid-cols-[auto_0.2fr] grid-rows-4 gap-y-[2px] gap-3 text-sm">
           <div className="font-semibold">{cardData.name}</div>
           <span className="flex items-center gap-x-1">
-            <PiStar />
+            <PiStarFill />
             {cardData.rating}
           </span>
 

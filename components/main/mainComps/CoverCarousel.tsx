@@ -77,8 +77,8 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
               className="!rounded-none aspect-[1/0.9] data-[focus=true]:opacity-100 data-[hover=true]:opacity-100"
               as={NextImage}
               src={image.src}
-              width={500}
-              height={500 * 0.9}
+              width={1000}
+              height={1000 * 0.9}
             />
           </SwiperSlide>
         ))}

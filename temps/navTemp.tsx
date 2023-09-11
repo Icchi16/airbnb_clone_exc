@@ -501,48 +501,28 @@ export const navCategory: ScrollableTabs = [
     id: "desert",
     text: "Desert",
     icon: (
-      <Image
-        alt="desert"
-        width={25}
-        height={20}
-        src="/navIcons/desert.jpg"
-      />
+      <Image alt="desert" width={25} height={20} src="/navIcons/desert.jpg" />
     ),
   },
   {
     id: "barns",
     text: "Barns",
     icon: (
-      <Image
-        alt="barns"
-        width={25}
-        height={20}
-        src="/navIcons/barns.jpg"
-      />
+      <Image alt="barns" width={25} height={20} src="/navIcons/barns.jpg" />
     ),
   },
   {
     id: "towers",
     text: "Towers",
     icon: (
-      <Image
-        alt="towers"
-        width={25}
-        height={20}
-        src="/navIcons/towers.jpg"
-      />
+      <Image alt="towers" width={25} height={20} src="/navIcons/towers.jpg" />
     ),
   },
   {
     id: "yurts",
     text: "Yurts",
     icon: (
-      <Image
-        alt="yurts"
-        width={25}
-        height={20}
-        src="/navIcons/yurts.jpg"
-      />
+      <Image alt="yurts" width={25} height={20} src="/navIcons/yurts.jpg" />
     ),
   },
   {
@@ -561,12 +541,7 @@ export const navCategory: ScrollableTabs = [
     id: "adapted",
     text: "Adapted",
     icon: (
-      <Image
-        alt="adapted"
-        width={25}
-        height={20}
-        src="/navIcons/adapted.jpg"
-      />
+      <Image alt="adapted" width={25} height={20} src="/navIcons/adapted.jpg" />
     ),
   },
   {
@@ -585,24 +560,14 @@ export const navCategory: ScrollableTabs = [
     id: "trulli",
     text: "Trulli",
     icon: (
-      <Image
-        alt="trulli"
-        width={25}
-        height={20}
-        src="/navIcons/trulli.jpg"
-      />
+      <Image alt="trulli" width={25} height={20} src="/navIcons/trulli.jpg" />
     ),
   },
   {
     id: "riads",
     text: "Riads",
     icon: (
-      <Image
-        alt="riads"
-        width={25}
-        height={20}
-        src="/navIcons/riads.jpg"
-      />
+      <Image alt="riads" width={25} height={20} src="/navIcons/riads.jpg" />
     ),
   },
 ];

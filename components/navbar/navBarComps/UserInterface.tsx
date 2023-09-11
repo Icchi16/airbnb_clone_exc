@@ -13,7 +13,8 @@ import {
 } from "@nextui-org/react";
 import { PiGlobeSimple } from "react-icons/pi";
 import { BiMenu, BiSolidUserCircle } from "react-icons/bi";
-import AuthForm from "@/components/auth/AuthForm";
+import AuthModal from "@/components/auth/AuthModal";
+import LangModal from "@/components/locale/LangModal";
 
 interface UserInterfaceProps {
   className: string;
@@ -28,14 +29,14 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ className }) => {
         key: "signup",
         label: <div className="font-semibold">Signup</div>,
         className: clsx(className, ""),
-        onClick: onOpen,
+        onClick: onAuthOpen,
       },
       {
         id: 2,
         key: "login",
         label: <div>Login</div>,
         className: clsx(className, ""),
-        onClick: onOpen,
+        onClick: onAuthOpen,
       },
       {
         id: 3,
@@ -60,7 +61,17 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ className }) => {
     ];
   };
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: isAuthOpen,
+    onOpen: onAuthOpen,
+    onOpenChange: onAuthChange,
+  } = useDisclosure({id:"authModal"});
+
+  const {
+    isOpen: isLangOpen,
+    onOpen: onLangOpen,
+    onOpenChange: onLangChange,
+  } = useDisclosure({id:"langModal"});
 
   return (
     <>
@@ -68,7 +79,12 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ className }) => {
         <Button variant="light" className="rounded-full text-sm">
           Airbnb your home
         </Button>
-        <Button isIconOnly variant="light" className="rounded-full text-xl">
+        <Button
+          isIconOnly
+          variant="light"
+          className="rounded-full text-xl"
+          onClick={onLangOpen}
+        >
           <PiGlobeSimple />
         </Button>
         <Dropdown
@@ -99,7 +115,8 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ className }) => {
           </DropdownMenu>
         </Dropdown>
       </div>
-      <AuthForm isOpen={isOpen} onChange={onOpenChange} />
+      <LangModal isOpen={isLangOpen} onChange={onLangChange} />
+      <AuthModal isOpen={isAuthOpen} onChange={onAuthChange} />
     </>
   );
 };

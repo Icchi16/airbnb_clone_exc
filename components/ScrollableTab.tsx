@@ -112,7 +112,7 @@ const ScrollableTab: React.FC<ScrollableTabProps> = ({
       <div
         className={clsx(
           leftArrow && "!block",
-          "hidden absolute -left-2 z-50 pointer-events-none"
+          "hidden absolute -left-2 z-10 pointer-events-none"
         )}
       >
         <div
@@ -134,7 +134,7 @@ const ScrollableTab: React.FC<ScrollableTabProps> = ({
       <div
         className={clsx(
           rightArrow && "!block",
-          "hidden absolute -right-2 z-50 pointer-events-none"
+          "hidden absolute -right-2 z-10 pointer-events-none"
         )}
       >
         <div
@@ -157,6 +157,8 @@ const ScrollableTab: React.FC<ScrollableTabProps> = ({
         aria-label="Options"
         defaultSelectedKey={data[0].text as Key}
         variant="underlined"
+        disableCursorAnimation={false}
+        disableAnimation={false}
         ref={tabs}
         className="pointer-events-auto"
         classNames={{

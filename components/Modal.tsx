@@ -4,7 +4,6 @@ import {
   ModalVariantProps,
   Modal as NextModal,
   UseDisclosureProps,
-  useDisclosure,
 } from "@nextui-org/react";
 import { extend } from "dayjs";
 import { ReactNode } from "react";
@@ -12,9 +11,7 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
 } from "@nextui-org/modal";
-import { Button } from "@nextui-org/button";
 import { MdClose } from "react-icons/md";
 import clsx from "clsx";
 
@@ -43,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex justify-center items-center gap-1 relative">
+              <ModalHeader className="flex justify-center items-center gap-1 relative h-16">
                 <button
                   title="close"
                   type="button"
