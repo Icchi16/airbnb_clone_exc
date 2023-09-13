@@ -159,6 +159,106 @@ export const langsTemp: LocaleProps[] = [
     },
   },
   {
+    id: "hu",
+    region: "Hungary",
+    lang: { langText: "Magyar nyelv", langCode: "hu" },
+    currency: {
+      currencySymbol: "Ft",
+      currencyShort: "HUF",
+      currencyText: "Hungarian forint",
+    },
+  },
+  {
+    id: "hi",
+    region: "India",
+    lang: { langText: "हिन्दी", langCode: "hi" },
+    currency: {
+      currencySymbol: "₹",
+      currencyShort: "INR",
+      currencyText: "Indian rupee",
+    },
+  },
+  {
+    id: "id",
+    region: "Indonesia",
+    lang: { langText: "Bahasa Indonesia", langCode: "id" },
+    currency: {
+      currencySymbol: "Rp",
+      currencyShort: "IDR",
+      currencyText: "Indonesia Rupiah",
+    },
+  },
+  {
+    id: "is",
+    region: "Israel",
+    lang: { langText: "עִבְֿרִיתּ", langCode: "is" },
+    currency: {
+      currencySymbol: "₪",
+      currencyShort: "ILS",
+      currencyText: "Israeli new shekel",
+    },
+  },
+  {
+    id: "jp",
+    region: "Japan",
+    lang: { langText: "日本語", langCode: "jp" },
+    currency: {
+      currencySymbol: "¥",
+      currencyShort: "JPY",
+      currencyText: "Japanese yen",
+    },
+  },
+  {
+    id: "ms-my",
+    region: "Malaysia",
+    lang: { langText: "بهاس ملايو مليسيا", langCode: "ms" },
+    currency: {
+      currencySymbol: "RM",
+      currencyShort: "MYR",
+      currencyText: "Malaysian ringgit",
+    },
+  },
+  {
+    id: "es-mx",
+    region: "Mexico",
+    lang: { langText: "Español", langCode: "es" },
+    currency: {
+      currencySymbol: "$",
+      currencyShort: "MXN",
+      currencyText: "Mexican peso",
+    },
+  },
+  {
+    id: "ar-ma",
+    region: "Morocco",
+    lang: { langText: "اَلْعَرَبِيَّةُ", langCode: "ar" },
+    currency: {
+      currencySymbol: "",
+      currencyShort: "MAD",
+      currencyText: "Moroccan dirham",
+    },
+  },
+  {
+    id: "zh-tw",
+    region: "Taiwan",
+    lang: { langText: "國語", langCode: "zh" },
+    currency: {
+      currencySymbol: "$",
+      currencyShort: "TWD",
+      currencyText: "New Taiwan dollar",
+    },
+  },
+  {
+    id: "en-nz",
+    region: "New Zealand",
+    lang: { langText: "English", langCode: "en" },
+    currency: {
+      currencySymbol: "$",
+      currencyShort: "NZD",
+      currencyText: "New Zealand dollar",
+    },
+  },
+  {
     id: "vn",
     region: "Vietnam",
     lang: { langText: "Tiếng việt", langCode: "vn" },

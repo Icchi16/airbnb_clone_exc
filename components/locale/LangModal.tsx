@@ -25,7 +25,7 @@ export const langTabData: ScrollableTabs = [
 const LangModal: React.FC<LangModalProps> = ({ isOpen, onChange }) => {
   return (
     <Modal isOpen={isOpen} onChange={onChange} size="5xl">
-      <div className="grid grid-cols-1 -mt-6">
+      <div className="grid grid-cols-1 -mt-6 h-[52rem]">
         <ScrollableTab
           id="langTab"
           data={langTabData}

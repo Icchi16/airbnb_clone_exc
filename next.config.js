@@ -1,5 +1,20 @@
+const nextTranslate = require("next-translate-plugin");
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+// const nextConfig = {
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: "https",
+//         hostname: "picsum.photos",
+//         port: "",
+//       },
+//     ],
+//   },
+// };
+
+// module.exports = nextConfig;
+module.exports = nextTranslate({
   images: {
     remotePatterns: [
       {
@@ -9,6 +24,4 @@ const nextConfig = {
       },
     ],
   },
-};
-
-module.exports = nextConfig;
+});

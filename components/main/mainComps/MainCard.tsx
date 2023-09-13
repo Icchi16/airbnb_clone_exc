@@ -1,6 +1,6 @@
-import { Card, Link,} from "@nextui-org/react";
+import { Button, Card, Link } from "@nextui-org/react";
 import NextLink from "next/link";
-import {  PiStarFill } from "react-icons/pi";
+import { PiHeartDuotone, PiHeartFill, PiStarFill } from "react-icons/pi";
 import CoverCarousel from "./CoverCarousel";
 import { CardDataProps } from "@/temps/mainTemp";
 import { useEffect, useMemo, useState } from "react";
@@ -12,6 +12,7 @@ interface MainCardProps {
 
 const MainCard: React.FC<MainCardProps> = ({ cardData }) => {
   const [distance, setDistance] = useState(0);
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
     setDistance((prev) => cardData.position - 0);
@@ -29,14 +30,32 @@ const MainCard: React.FC<MainCardProps> = ({ cardData }) => {
     return cardData.cost;
   }, [cardData.duration]);
 
+  const changeFav = () => {
+    setIsFav((prev) => !prev);
+  };
+
   return (
-    <Link as={NextLink} href="#" className="hover:!opacity-100">
+    <Link as={NextLink} href="#" className="hover:!opacity-100 ">
       <Card
-        className="w-full space-y-3 bg-transparent rounded-b-none"
+        className="w-full gap-y-3 bg-transparent rounded-b-none relative"
         classNames={{ base: "border-none" }}
         radius="lg"
         shadow="none"
       >
+        <Button
+          size="sm"
+          variant="light"
+          disableRipple
+          isIconOnly
+          onClick={changeFav}
+          className="absolute right-3 top-3 z-50 text-white flex items-center justify-center text-2xl overflow-visible data-[hover=true]:!bg-transparent"
+        >
+          {isFav ? (
+            <PiHeartFill className="!text-red-500" />
+          ) : (
+            <PiHeartDuotone />
+          )}
+        </Button>
         <CoverCarousel images={cardData.images} />
         <div className="grid grid-cols-[auto_0.2fr] grid-rows-4 gap-y-[2px] gap-3 text-sm">
           <div className="font-semibold">{cardData.name}</div>

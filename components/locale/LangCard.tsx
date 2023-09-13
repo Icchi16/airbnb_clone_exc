@@ -25,7 +25,7 @@ const LangCard: React.FC<LangCardProps> = ({
       variant="flat"
       radius="sm"
       className={clsx(
-        isActive ? "outline-2 outline-black" : "",
+        isActive ? "ring-1 ring-inset ring-black": "",
         "justify-start bg-transparent hover:bg-neutral-100 p-3 !h-fit"
       )}
     >

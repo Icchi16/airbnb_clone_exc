@@ -57,7 +57,7 @@ const Lang = () => {
       </div>
       <div className="flex flex-col gap-y-6">
         <div className="text-xl font-bold">Choose a language and region</div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-4 overflow-scroll">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-4 overflow-y-auto">
           {langs.map((lang, index) => (
             <LangCard
               index={index.toString()}

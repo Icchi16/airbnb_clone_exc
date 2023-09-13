@@ -7,11 +7,7 @@ import {
 } from "@nextui-org/react";
 import { extend } from "dayjs";
 import { ReactNode } from "react";
-import {
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-} from "@nextui-org/modal";
+import { ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal";
 import { MdClose } from "react-icons/md";
 import clsx from "clsx";
 
@@ -31,11 +27,16 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       <NextModal
+        placement="center"
         size={size}
         isOpen={isOpen}
         onOpenChange={onChange}
         hideCloseButton
-        classNames={{ header: clsx(title && "border-b"), body: "p-6" }}
+        className="!m-0"
+        classNames={{
+          header: clsx(title && "border-b"),
+          body: "p-6",
+        }}
       >
         <ModalContent>
           {(onClose) => (

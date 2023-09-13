@@ -30,7 +30,7 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
     wrapper:
       "absolute flex z-50 w-fit inset-y-0 items-center transition-all duration-75 ease-in-out pointer-events-none ",
     button:
-      "z-50 text-white text-3xl opacity-80 hover:opacity-100 shadow-lg transition-opacity duration-75 ease-in-out pointer-events-auto",
+      "z-50 text-white text-3xl opacity-80 hover:opacity-100 shadow-lg transition-opacity duration-75 ease-in-out pointer-events-auto !overflow-visible !rounded-full",
   };
 
   return (
@@ -45,7 +45,7 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
           prevEl: prevRef.current,
         }}
         modules={[Pagination, Navigation, EffectFade]}
-        className="w-full rounded-2xl relative"
+        className="w-full rounded-2xl relative "
       >
         <div
           ref={prevRef}
@@ -53,7 +53,7 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
             navigationStyle.wrapper,
             imagesCount < 2 && "!hidden",
             isHover ? "opacity-100" : "opacity-0",
-            "pl-2 left-0"
+            "pl-3 left-0 "
           )}
         >
           <FaChevronCircleLeft className={clsx(navigationStyle.button, "")} />
@@ -64,7 +64,7 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
             navigationStyle.wrapper,
             imagesCount < 2 && "!hidden",
             isHover ? "opacity-100" : "opacity-0",
-            "pr-2 right-0"
+            "pr-3 right-0 "
           )}
         >
           <FaChevronCircleRight className={clsx(navigationStyle.button, "")} />
@@ -74,7 +74,7 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
             <Image
               loading="eager"
               alt="id"
-              className="!rounded-none aspect-[1/0.9] data-[focus=true]:opacity-100 data-[hover=true]:opacity-100"
+              className="!rounded-none aspect-square data-[focus=true]:opacity-100 data-[hover=true]:opacity-100"
               as={NextImage}
               src={image.src}
               width={1000}
