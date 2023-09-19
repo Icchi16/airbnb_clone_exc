@@ -112,7 +112,7 @@ const ScrollableTab: React.FC<ScrollableTabProps> = ({
       <div
         className={clsx(
           leftArrow && "!block",
-          "hidden absolute -left-2 z-10 pointer-events-none"
+          "hidden absolute -left-2 z-[5] pointer-events-none"
         )}
       >
         <div
@@ -134,7 +134,7 @@ const ScrollableTab: React.FC<ScrollableTabProps> = ({
       <div
         className={clsx(
           rightArrow && "!block",
-          "hidden absolute -right-2 z-10 pointer-events-none"
+          "hidden absolute -right-2 z-[5] pointer-events-none"
         )}
       >
         <div

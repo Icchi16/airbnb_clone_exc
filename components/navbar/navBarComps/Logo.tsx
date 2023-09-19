@@ -8,21 +8,22 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
-    <Link
-      href=""
-      className={clsx(className, "md:!min-w-[102px] items-center md:!flex")}
+    <div
+      className={clsx(className, "md:!min-w-[102px] md:items-center md:!flex")}
     >
-      <div className="overflow-hidden md:w-9 lg:w-full">
-        <div className="min-w-[102px]">
-          <Image
-            src="/images/airbnb_logo.svg"
-            alt="AirBnB"
-            width={102}
-            height={40}
-          />
+      <Link href="">
+        <div className="overflow-hidden md:w-9 lg:w-min">
+          <div className="min-w-[102px]">
+            <Image
+              src="/images/airbnb_logo.svg"
+              alt="AirBnB"
+              width={102}
+              height={40}
+            />
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

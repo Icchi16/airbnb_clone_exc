@@ -48,7 +48,7 @@ const MainCard: React.FC<MainCardProps> = ({ cardData }) => {
           disableRipple
           isIconOnly
           onClick={changeFav}
-          className="absolute right-3 top-3 z-50 text-white flex items-center justify-center text-2xl overflow-visible data-[hover=true]:!bg-transparent"
+          className="absolute right-3 top-3 z-10 text-white flex items-center justify-center text-2xl overflow-visible data-[hover=true]:!bg-transparent"
         >
           {isFav ? (
             <PiHeartFill className="!text-red-500" />
