@@ -102,9 +102,16 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
   }, [backgroundLayer]);
 
   return (
-    <div className={className}>
-      <div className="h-full cursor-pointer rounded-full border px-2 shadow-sm transition-all hover:shadow-md">
-        <ButtonGroup className="h-full items-center justify-center py-2">
+    <div className={clsx(className, "h-20")}>
+      <div
+        className={clsx(
+          isOpen
+            ? "translate-y-16 w-[55rem] h-16 "
+            : "h-12 w-[22rem]",
+          "absolute left-1/2 -translate-x-1/2 z-[9] cursor-pointer rounded-full border px-2 shadow-sm transition-all hover:shadow-md bg-white"
+        )}
+      >
+        <ButtonGroup className="w-full h-full items-center justify-between py-2 ">
           <Button
             id="where"
             onClick={handleClickNavSearch}
@@ -156,7 +163,11 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
             variant="underlined"
             disableCursorAnimation
             className="h-20 flex justify-center items-center"
-            classNames={{ tab: "px-0", tabList: "gap-x-8" }}
+            classNames={{
+              tab: "px-0",
+              tabList: "gap-x-8",
+              tabContent: "text-lg",
+            }}
             onSelectionChange={(key) => {
               setCurrentTab(key as CurrentTab);
             }}
@@ -176,7 +187,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
           <div className="flex justify-center items-start cursor-pointer">
             <div
               className={clsx(
-                isOpen ? "top-20" : "top-0",
+                isOpen ? "top-20" : "top-4 w-96",
                 "absolute transition-all"
               )}
             >
@@ -191,8 +202,13 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
                 }}
                 radius="full"
                 classNames={{
-                  tabList: "h-16 p-0 items-center overflow-visible gap-x-0",
-                  tab: "rounded-full justify-between px-8",
+                  tabList: clsx(
+                    isOpen
+                      ? "h-16 p-0 overflow-visible"
+                      : "h-12 w-96 overflow-hidden justify-between",
+                    "items-center gap-x-0"
+                  ),
+                  tab: "rounded-full justify-between px-8 shrink-1",
                   cursor:
                     "-top-4 -bottom-4 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.15)]",
                   tabContent: "w-full",
@@ -200,7 +216,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
               >
                 <Tab
                   key="where"
-                  className="w-[20.5rem]"
+                  className={clsx(isOpen ? "w-[20.5rem]" : "")}
                   title={
                     <TabTitle
                       id="where"
@@ -213,7 +229,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
                   key="when1-start"
                   className={clsx(
                     currentTab === "stays" ? "flex" : "hidden",
-                    "w-36"
+                    isOpen ? "w-36" : ""
                   )}
                   title={
                     <TabTitle
@@ -227,7 +243,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
                   key="when1-end"
                   className={clsx(
                     currentTab === "stays" ? "flex" : "hidden",
-                    "w-36"
+                    isOpen ? "w-36" : ""
                   )}
                   title={
                     <TabTitle
@@ -241,7 +257,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
                   key="when2"
                   className={clsx(
                     currentTab === "experiences" ? "flex" : "hidden",
-                    "w-72"
+                    isOpen ? "w-72" : ""
                   )}
                   title={<TabTitle id="when2" name="Date" text="Add dates" />}
                 />
@@ -253,7 +269,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
                   onBlur={() => {
                     setIsFocusOnWho(false);
                   }}
-                  className=" w-64 pr-2"
+                  className={clsx(isOpen ? "w-64 pr-2" : "")}
                   title={
                     <div className="flex items-center justify-between">
                       <TabTitle id="who" name="Who" text="Add guest" />
@@ -284,7 +300,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
         ref={backgroundLayer}
         className={clsx(
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
-          "absolute top-20 left-0 h-screen w-screen bg-neutral-500 bg-opacity-40 z-10"
+          "absolute top-20 left-0 h-screen w-screen bg-neutral-500 bg-opacity-40 z-[6]"
         )}
       />
     </div>
