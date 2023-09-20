@@ -1,6 +1,6 @@
 import Catagories from "./navBarComps/Categories";
 import Logo from "./navBarComps/Logo";
-import NavSearch from "./navBarComps/NavSearch";
+import NavSearch from "./navBarComps/navSearch/NavSearch";
 import UserInterface from "./navBarComps/UserInterface";
 
 const NavBar = () => {

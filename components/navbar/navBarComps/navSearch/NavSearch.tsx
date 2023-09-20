@@ -1,25 +1,22 @@
 "use client";
 
-import { Button, ButtonGroup, Divider, Tab, Tabs } from "@nextui-org/react";
+import {
+  Button,
+  ButtonGroup,
+  Divider,
+  Input,
+  Tab,
+  Tabs,
+} from "@nextui-org/react";
 import clsx from "clsx";
-import { useEffect, useRef, useState, Key } from "react";
+import { useEffect, useRef, useState, Key, ReactNode } from "react";
 import { PiMagnifyingGlassBold, PiSlidersHorizontal } from "react-icons/pi";
 import { FaSearch } from "react-icons/fa";
+import NavModal from "./NavModal";
+import NavSearchExpanded from "./NavSearchExpanded";
 
 interface NavSearchProps {
   className: string;
-}
-
-interface TabTitleProps {
-  id: string;
-  name: string;
-  text: string;
-  className?: string;
-}
-
-interface NavSearchExpandedProps {
-  currentTab: CurrentTab;
-  selectedTab: SearchTab;
 }
 
 export type CurrentTab = "stays" | "experiences" | "online-experience" | null;
@@ -30,15 +27,6 @@ export type SearchTab =
   | "when2"
   | "who"
   | null;
-
-const TabTitle: React.FC<TabTitleProps> = ({ id, name, text, className }) => {
-  return (
-    <div className={clsx(className, "flex flex-col items-start")}>
-      <div className="font-semibold text-xs">{name}</div>
-      <div className="font-light text-neutral-400">{text}</div>
-    </div>
-  );
-};
 
 const MobileNavSearch = ({ className }: { className: string }) => {
   return (
@@ -105,9 +93,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
     <div className={clsx(className, "h-20")}>
       <div
         className={clsx(
-          isOpen
-            ? "translate-y-16 w-[55rem] h-16 "
-            : "h-12 w-[22rem]",
+          isOpen ? "translate-y-16 w-[55rem] h-16 " : "h-12 w-[22rem]",
           "absolute left-1/2 -translate-x-1/2 z-[9] cursor-pointer rounded-full border px-2 shadow-sm transition-all hover:shadow-md bg-white"
         )}
       >
@@ -188,110 +174,10 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
             <div
               className={clsx(
                 isOpen ? "top-20" : "top-4 w-96",
-                "absolute transition-all"
+                "transition-all"
               )}
             >
-              {/* Search Tabs Expand */}
-              <Tabs
-                selectedKey={selectedTab}
-                onSelectionChange={(key) => {
-                  if (key !== "who") {
-                    setIsFocusOnWho(false);
-                  }
-                  setSelectedTab(key as SearchTab);
-                }}
-                radius="full"
-                classNames={{
-                  tabList: clsx(
-                    isOpen
-                      ? "h-16 p-0 overflow-visible"
-                      : "h-12 w-96 overflow-hidden justify-between",
-                    "items-center gap-x-0"
-                  ),
-                  tab: "rounded-full justify-between px-8 shrink-1",
-                  cursor:
-                    "-top-4 -bottom-4 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.15)]",
-                  tabContent: "w-full",
-                }}
-              >
-                <Tab
-                  key="where"
-                  className={clsx(isOpen ? "w-[20.5rem]" : "")}
-                  title={
-                    <TabTitle
-                      id="where"
-                      name="Where"
-                      text="Search destinations"
-                    />
-                  }
-                />
-                <Tab
-                  key="when1-start"
-                  className={clsx(
-                    currentTab === "stays" ? "flex" : "hidden",
-                    isOpen ? "w-36" : ""
-                  )}
-                  title={
-                    <TabTitle
-                      id="when1-start"
-                      name="Check in"
-                      text="Add dates"
-                    />
-                  }
-                />
-                <Tab
-                  key="when1-end"
-                  className={clsx(
-                    currentTab === "stays" ? "flex" : "hidden",
-                    isOpen ? "w-36" : ""
-                  )}
-                  title={
-                    <TabTitle
-                      id="when1-end"
-                      name="Check out"
-                      text="Add dates"
-                    />
-                  }
-                />
-                <Tab
-                  key="when2"
-                  className={clsx(
-                    currentTab === "experiences" ? "flex" : "hidden",
-                    isOpen ? "w-72" : ""
-                  )}
-                  title={<TabTitle id="when2" name="Date" text="Add dates" />}
-                />
-                <Tab
-                  key="who"
-                  onFocus={() => {
-                    setIsFocusOnWho(true);
-                  }}
-                  onBlur={() => {
-                    setIsFocusOnWho(false);
-                  }}
-                  className={clsx(isOpen ? "w-64 pr-2" : "")}
-                  title={
-                    <div className="flex items-center justify-between">
-                      <TabTitle id="who" name="Who" text="Add guest" />
-                      <div
-                        className={clsx(
-                          isFocusOnWho ? "gap-x-2" : "gap-x-0",
-                          "flex items-center transition-all text-white text-medium font-semibold rounded-full !h-12 px-4 bg-gradient-to-r from-rose-500 to-pink-700 "
-                        )}
-                      >
-                        <FaSearch />
-                        <p
-                          className={clsx(
-                            isFocusOnWho ? "opacity-100 w-max" : "w-0 opacity-0"
-                          )}
-                        >
-                          Search
-                        </p>
-                      </div>
-                    </div>
-                  }
-                />
-              </Tabs>
+              <NavSearchExpanded />
             </div>
           </div>
         </div>
