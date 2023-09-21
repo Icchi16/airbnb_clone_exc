@@ -1,18 +1,9 @@
 "use client";
 
-import {
-  Button,
-  ButtonGroup,
-  Divider,
-  Input,
-  Tab,
-  Tabs,
-} from "@nextui-org/react";
+import { Button, ButtonGroup, Divider, Tab, Tabs } from "@nextui-org/react";
 import clsx from "clsx";
-import { useEffect, useRef, useState, Key, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiMagnifyingGlassBold, PiSlidersHorizontal } from "react-icons/pi";
-import { FaSearch } from "react-icons/fa";
-import NavModal from "./NavModal";
 import NavSearchExpanded from "./NavSearchExpanded";
 
 interface NavSearchProps {
@@ -22,9 +13,9 @@ interface NavSearchProps {
 export type CurrentTab = "stays" | "experiences" | "online-experience" | null;
 export type SearchTab =
   | "where"
-  | "when1-start"
-  | "when1-end"
-  | "when2"
+  | "stays-start"
+  | "stays-end"
+  | "experience-date"
   | "who"
   | null;
 
@@ -56,9 +47,8 @@ const MobileNavSearch = ({ className }: { className: string }) => {
 
 const DesktopNavSearch = ({ className }: { className: string }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFocusOnWho, setIsFocusOnWho] = useState(false);
-  const [currentTab, setCurrentTab] = useState<CurrentTab>(null);
-  const [selectedTab, setSelectedTab] = useState<SearchTab>(null);
+  const [currentProductTab, setCurrentProductTab] = useState<CurrentTab>(null);
+  const [selectedNavTab, setSelectedNavTab] = useState<SearchTab>(null);
   const backgroundLayer = useRef(null);
 
   const tabsUnderline =
@@ -67,12 +57,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
   const handleClickNavSearch = (event: React.MouseEvent) => {
     setIsOpen((prev) => !prev);
     const selectedId = event.currentTarget.getAttribute("id") as SearchTab;
-    setSelectedTab(selectedId);
-    if (selectedId === "who") {
-      setIsFocusOnWho(true);
-    } else {
-      setIsFocusOnWho(false);
-    }
+    setSelectedNavTab(selectedId);
   };
 
   useEffect(() => {
@@ -110,7 +95,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
           </Button>
           <Divider orientation="vertical" />
           <Button
-            id="when1-start"
+            id="stays-start"
             onClick={handleClickNavSearch}
             disableRipple
             disableAnimation
@@ -141,7 +126,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
       <div
         className={clsx(
           isOpen ? "opacity-100 h-40" : "h-0 opacity-0 pointer-events-none",
-          "absolute  inset-0 bg-white z-20 flex shrink-0 justify-center transition-all shadow-md"
+          "absolute inset-0 bg-white z-20 flex flex-col shrink-0 justify-center transition-all shadow-md"
         )}
       >
         <div className="flex flex-col basis-96">
@@ -155,7 +140,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
               tabContent: "text-lg",
             }}
             onSelectionChange={(key) => {
-              setCurrentTab(key as CurrentTab);
+              setCurrentProductTab(key as CurrentTab);
             }}
           >
             <Tab key="stays" title={"Stays"} className={tabsUnderline} />
@@ -170,14 +155,18 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
               className={tabsUnderline}
             />
           </Tabs>
-          <div className="flex justify-center items-start cursor-pointer">
+          <div className="items-start cursor-pointer">
             <div
               className={clsx(
                 isOpen ? "top-20" : "top-4 w-96",
-                "transition-all"
+                "transition-all overflow-visible"
               )}
             >
-              <NavSearchExpanded />
+              <NavSearchExpanded
+                currentTab={selectedNavTab}
+                currentProductTab={currentProductTab}
+                isOpen={isOpen}
+              />
             </div>
           </div>
         </div>
@@ -186,7 +175,7 @@ const DesktopNavSearch = ({ className }: { className: string }) => {
         ref={backgroundLayer}
         className={clsx(
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
-          "absolute top-20 left-0 h-screen w-screen bg-neutral-500 bg-opacity-40 z-[6]"
+          "absolute h-screen inset-0 bg-neutral-500 bg-opacity-40 z-[6]"
         )}
       />
     </div>

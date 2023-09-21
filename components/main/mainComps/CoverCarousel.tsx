@@ -1,6 +1,6 @@
 "use client";
 
-import { Image, image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import NextImage from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade } from "swiper/modules";
