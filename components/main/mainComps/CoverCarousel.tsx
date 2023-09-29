@@ -84,41 +84,6 @@ const CoverCarousel: React.FC<CoverCarouselProps> = ({ images }) => {
         ))}
       </Swiper>
     </div>
-
-    // <Carousel
-    //   containerProps={{}}
-    //   activeSlideIndex={activeSlideIndex}
-    //   activeSlideProps={{}}
-    //   onRequestChange={setActiveSlideIndex}
-    //   forwardBtnProps={{
-    //     children: ">",
-    //   }}
-    //   backwardBtnProps={{
-    //     children: "<",
-    //   }}
-    //   dotsNav={{
-    //     show: true,
-    //     itemBtnProps: {},
-    //     activeItemBtnProps: {},
-    //   }}
-    //   itemsToShow={1}
-    //   speed={400}
-    //   centerMode
-    //   easing="ease-in-out"
-    // >
-    //   {Array.from({ length: 3 }).map((item, index) => (
-    //     <div className="" key={index}>
-    //       <Image
-    //         alt="id"
-    //         className="aspect-[1/0.9]"
-    //         as={NextImage}
-    //         src="/images/test.jpeg"
-    //         width={500}
-    //         height={500 * 0.9}
-    //       />
-    //     </div>
-    //   ))}
-    // </Carousel>
   );
 };
 

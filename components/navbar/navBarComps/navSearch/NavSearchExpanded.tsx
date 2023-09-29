@@ -6,8 +6,10 @@ import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import { CurrentTab, SearchTab } from "./NavSearch";
 import NavModal from "./NavModal";
-import { Image } from "@nextui-org/react";
+import { Image, Tabs, Tab } from "@nextui-org/react";
 import NextImage from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 interface NavSearchExpandedProps {
   currentTab: SearchTab;
@@ -120,6 +122,8 @@ const NavSearchExpanded: React.FC<NavSearchExpandedProps> = ({
       document.removeEventListener("mouseup", checkTabWhoFocus);
     };
   }, [tabWhoRef]);
+
+  // For date input components
 
   return (
     <div className="h-20">
@@ -246,6 +250,8 @@ const NavSearchExpanded: React.FC<NavSearchExpandedProps> = ({
               Add dates
             </div>
           </div>
+
+          {/* Dates Input */}
           <NavModal
             isOpen={
               (selectedTab === "stays-start" ||
@@ -256,8 +262,38 @@ const NavSearchExpanded: React.FC<NavSearchExpandedProps> = ({
             position="center"
             currentTab={selectedTab}
           >
-            This is calendar
+            <div className="items-center relative bg-red-800">
+              <Tabs
+                classNames={{
+                  tabContent: "w-full",
+                  base: "flex justify-center",
+                }}
+              >
+                <Tab title="Dates">
+                  <Swiper
+                    slidesPerView={2}
+                    modules={[Navigation]}
+                    navigation={{}}
+                    injectStyles={[`swiper-button-next, swiper-button-prev {
+                      color: #00ff00
+                    }`]}
+                  >
+                    {[...Array(30)].map((_, index) => (
+                      <SwiperSlide key={index}>
+                        <div className="flex flex-col items-center">
+                          <div>This is month {index}</div>
+                          <input type="date"></input>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </Tab>
+                <Tab title="Months">Tab 2</Tab>
+                <Tab title="Flexible">Tab 3</Tab>
+              </Tabs>
+            </div>
           </NavModal>
+          {/* End Date Input */}
         </div>
 
         <div
